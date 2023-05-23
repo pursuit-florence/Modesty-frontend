@@ -1,11 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import Product from "./Product";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-
-// import category from "../../../modesty-backend/controllers/categoryController";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -21,9 +16,9 @@ function Products() {
     size: "",
     type: "",
     image_url: "",
-    category_id: categoryId
+    category: ""
   });
-  
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNewProduct({ ...newProduct, [name]: value });
@@ -41,9 +36,10 @@ function Products() {
           color: "",
           size: "",
           type: "",
-          image_url: ""
+          image_url: "",
+       
         });
-        navigate("/"); // Redirect to home page
+        navigate("/category/woman"); // Redirect to home page
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -55,65 +51,82 @@ function Products() {
     handleCreate();
   };
 
-  const colorOptions = ["Red", "Blue", "Green", "Yellow", "Black"];
+  const colorOptions = ["women", "men", "kids"];
   const sizeOptions = ["Small", "Medium", "Large", "XL", "XXL"];
-
+  const typeOptions = ["women", "men", "kids"];
+  
   return (
     <div className="container">
       <div>
         <h2>Create a New Product</h2>
-        <Form>
-        <Form.Group className="mb-3" controlId="formBasicEmail" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           {/* Form fields */}
-          <Form.Label>Name </Form.Label>
-          <Form.Text className="text-muted"> type in your name</Form.Text>
-          <Form.Control type="text" placeholder="Enter name" />
-            
-              value={newProduct.name}
-              onChange={handleInputChange}
-         
-            </Form.Group>
-         
-          <br />
-          <Form.Label>
-            Description:
+          <div className="mb-3">
+            <label htmlFor="name" className="form-label">
+              Name:
+            </label>
             <input
               type="text"
+              className="form-control"
+              id="name"
+              name="name"
+              value={newProduct.name}
+              onChange={handleInputChange}
+            />
+            
+          </div>
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Description:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              id="description"
               name="description"
               value={newProduct.description}
               onChange={handleInputChange}
             />
-          </Form.Label>
-          <br />
-          <Form.Label>
-            Price:
+          </div>
+          <div className="mb-3">
+            <label htmlFor="price" className="form-label">
+              Price:
+            </label>
             <input
               type="number"
+              className="form-control"
+              id="price"
               name="price"
               value={newProduct.price}
               onChange={handleInputChange}
             />
-          </Form.Label>
-          <br />
-          <Form.Label>
-            Color:
+          </div>
+          <div className="mb-3">
+            <label htmlFor="color" className="form-label">
+              Category:
+            </label>
             <select
+              className="form-select"
+              id="color"
               name="color"
               value={newProduct.color}
               onChange={handleInputChange}
             >
-              <option value="">Select a color</option>
+              <option value="">Category</option>
               {colorOptions.map((color) => (
                 <option key={color} value={color}>
                   {color}
                 </option>
               ))}
             </select>
-          </Form.Label>
-          <br />
-          <Form.Label>
-            Size:
+          </div>
+          <div className="mb-3">
+            <label htmlFor="size" className="form-label">
+              Size:
+            </label>
             <select
+              className="form-select"
+              id="size"
               name="size"
               value={newProduct.size}
               onChange={handleInputChange}
@@ -125,31 +138,39 @@ function Products() {
                 </option>
               ))}
             </select>
-          </Form.Label>
-          <br />
-          <Form.Label>
-            Image URL:
+          </div>
+          <div className="mb-3">
+            <label htmlFor="image_url" className="form-label">
+              Image URL:
+            </label>
             <input
               type="text"
+              className="form-control"
+              id="image_url"
               name="image_url"
               value={newProduct.image_url}
               onChange={handleInputChange}
             />
-          </Form.Label>
-          <br />
-          <Form.Label>
-            Type:
+          </div>
+          <div className="mb-3">
+            <label htmlFor="type" className="form-label">
+              Type:
+            </label>
             <input
               type="text"
+              className="form-control"
+              id="type"
               name="type"
               value={newProduct.type}
               onChange={handleInputChange}
             />
-          </Form.Label>
-          <br />
-          <input type="submit" value="Create" />
-        {/* </Form.Group> */}
-        </Form>
+          </div>
+          <Link to={"/"}>
+          <button type="submit" className="btn btn-primary">
+            Create
+          </button>
+          </Link>
+        </form>
       </div>
       <div>
         {/* Display products */}

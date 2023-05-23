@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.New {
+  /* border: 1px solid gold;
+  margin: auto;
+  width: 95%; */
+}
+
+.New form {
+  margin: auto;
+  width: 95%;
+}

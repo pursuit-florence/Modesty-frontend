@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams ,useNavigate} from "react-router-dom";
 import Product from "./Product";
 
 const API = process.env.REACT_APP_API_URL;
 
 function Products() {
   const [products, setProducts] = useState([]);
-  const categoryId = 2;
+  let categoryId = 2;
+  const { productId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -23,9 +25,8 @@ function Products() {
 
   const handleDelete = (productId) => {
     axios
-      .delete(`${API}/category/${categoryId}/products`)
+      .delete(`${API}/category/${categoryId}/products/${productId}`)
       .then((response) => {
-        console.log(response.data);
         // Filter out the deleted product from the products array
         const updatedProducts = products.filter((product) => product.id !== productId);
         setProducts(updatedProducts);

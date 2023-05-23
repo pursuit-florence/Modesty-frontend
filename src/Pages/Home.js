@@ -1,76 +1,56 @@
 
-import Carousel from 'react-bootstrap/Carousel';
+ import Carousel from 'react-bootstrap/Carousel';
  import modesty from "../Images/image.jpeg"
  import CategoryByWomen from "../Components/CategoryIdByWomen";
  import CategoryByMen from "../Components/categoryByMen";
 import CategoryByKids from "../Components/CategoryIdByKids";
-import ProductDetails from "../Components/ProductDetails"
-// export default function Home(){
-//   return(
-//     <div>  
-//       <CategoryByKids/>
-//       <CategoryByMen/>
-//       <CategoryByWomen/>
-     
-      {/* <img className="profile-photo" src= {modesty} alt={"Modesty "}/> */}
-//     </div>
-//   )
-// }
+import Product from "../Components/Product";
+// import ProductDetails from "../Components/ProductDetails"
+import { Link } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
 
 
-
-
-
-
-function IndividualIntervalsExample({womenproduct,menproduct,kidproduct}) {
-
-
+export default function NoTransitionExample({ womenproduct, menproduct, kidproduct }) {
   return (
-    <Carousel>
-      <Carousel.Item interval={1000}>
+    <Carousel slide={false} interval={3000}>
+      <Carousel.Item>
         <img
           className="d-block w-100"
-          src= {modesty}
+          src={womenproduct}
           alt="Women Apparel"
+          
         />
-
-        
-        
+      
         <Carousel.Caption>
-          <h3>Women Clothings</h3>
-          <p>Find all women clothings, shoes and accessories.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <img
-          className="d-block w-100"
-          src={menproduct}
-          alt="Men Apparel"
-        /> <img
-        className="d-block w-100"
-        src={womenproduct}
-        alt="Men Apparel"
-      />
-        <Carousel.Caption>
-          <h3>Men Clothings</h3>
-          <p>Find all men clothings, shoes and accessories.</p>
+          <h3>Women Apparel Section</h3>
+          <p>This is where you find quality clothing.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
           src={menproduct}
+          alt="Men Apparel"
+        />
+        <Carousel.Caption>
+          <h3>Men Apparel Section</h3>
+          <p>This is where you find quality clothing.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src={kidproduct}
           alt="Kids Apparel"
         />
         <Carousel.Caption>
-          <h3>Kids clothing</h3>
-          <p>
-          Find all kids clothings, shoes and accessories.
-          </p>
+          <h3>Kids Apparel Section</h3>
+          <p>This is where you find quality clothing.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+   
   );
 }
 
-export default IndividualIntervalsExample;
+

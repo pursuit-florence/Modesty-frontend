@@ -49,26 +49,30 @@ function Products() {
         console.error("Error:", error);
       });
   }, [categoryid]);
+  const women = womenProducts.slice(0, 1);
+  const men = menProducts.slice(0, 1);
+  const kid = kidProducts.slice(0, 1);
+
   return (
     <div className="container">
       
-          {womenProducts.map((womenproduct) => (
+          {women.map((womenproduct) => (
             <Home key={womenproduct.womenproduct_id} womenproduct={womenproduct.image_url}  />
          
             
           ))}
     {/* <div className="container"> */}
       
-      {menProducts.map((menproduct) => (
-        <Home key={menproduct.menproduct_id} menproduct={menproduct.image_url}  />
+      {men.map((menproduct) => (
+        <Home key={men.menproduct_id} menproduct={menproduct.image_url}  />
      
         
       ))}
 
 
       
-      {kidProducts.map((kidproduct) => (
-     <Home key={kidproduct.kidproduct_id} kidproduct={kidproduct.image_url}  />
+      {kid.map((kidproduct) => (
+     <Home key={kid.kidproduct_id} kidproduct={kidproduct.image_url}  />
      
         
       ))}

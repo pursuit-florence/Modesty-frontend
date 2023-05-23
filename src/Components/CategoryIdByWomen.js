@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Product from "./Product";
 
+
 const API = process.env.REACT_APP_API_URL;
 
 function Products() {
@@ -22,7 +23,7 @@ function Products() {
 
   const handleDelete = (productId) => {
     axios
-      .delete(`${API}/products/${productId}`)
+      .delete(`${API}/category/${categoryId}/products/${productId}`)
       .then((response) => {
         // Filter out the deleted product from the products array
         const updatedProducts = products.filter((product) => product.id !== productId);
@@ -33,12 +34,16 @@ function Products() {
       });
   };
 
+  
+
   return (
     <div className="container">
       
           {products.map((product) => (
             <Product key={product.product_id} product={product} onDelete={handleDelete} />
+            
           ))}
+          
         {/* </tbody>
       </table> */}
     </div>

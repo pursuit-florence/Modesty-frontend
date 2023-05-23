@@ -22,7 +22,7 @@ function Products() {
 
   const handleDelete = (productId) => {
     axios
-      .delete(`${API}/products/${productId}`)
+      .delete(`${API}/category/${categoryId}/products/${productId}`)
       .then((response) => {
         // Filter out the deleted product from the products array
         const updatedProducts = products.filter((product) => product.id !== productId);

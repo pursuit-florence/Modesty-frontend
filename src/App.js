@@ -10,9 +10,9 @@ import Home from "./Pages/Home"
 
 // import Index from "./Pages/Index"
 import NewCategory from "./Pages/NewCategory"
-import CategoryByWomen from "./Components/CategoryIdByWomen"
-import CategoryByMen from "./Components/categoryByMen"
-import CategoryByKid from "./Components/CategoryIdByKids"
+import Women from "./Components/CategoryIdByWomen"
+import Men from "./Components/categoryByMen"
+import Kid from "./Components/CategoryIdByKids"
 import ProductNewForm from "./Components/ProductNewForm"
 import ProductDetails from "./Components/ProductDetails"
 
@@ -32,13 +32,11 @@ function App() {
           <Routes>
             <Route path="/" element={<ProductDetails />} /> 
             {/* <Route path="/category" element={<Index />} /> */}
-            <Route exact path="/category/woman" element={<CategoryByWomen/>} /> 
-            <Route exact path="/category/men" element={<CategoryByMen/>} /> 
-            <Route exact path="/category/kids" element={<CategoryByKid/>} /> 
-           
-             <Route path="category/:categoryId/products/new" element={<ProductNewForm />} /> 
+            <Route exact path="/category/woman" element={<Women/>} /> 
+            <Route exact path="/category/men" element={<Men/>} /> 
+            <Route exact path="/category/kids" element={<Kid/>} /> 
+            <Route path="category/:categoryId/products/new" element={<ProductNewForm />} /> 
             <Route path="/category/new" element={<NewCategory />} />
-           
             <Route path="/category/:categoryId/edit" element={<EditCategory/>} />
             {/* <Route path="*" element={<FourOFour />} /> */}
           </Routes>
