@@ -2,7 +2,7 @@
 
 [Netlify Link](https://super-sundae-459a13.netlify.app)
 
-![Index Page View](./src/images/IndexScreenshot.png)
+
 ## Table of Contents
 - _Technologies used_
 - _Frontend Dependencies_
