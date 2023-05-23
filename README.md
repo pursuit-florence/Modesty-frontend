@@ -1,6 +1,6 @@
 # Welcome to The Table Fontend Repo 
 
-[Netlify Link]([https://thetable-app.netlify.app/](https://super-sundae-459a13.netlify.app)
+[Netlify Link](https://super-sundae-459a13.netlify.app)
 
 ![Index Page View](./src/images/IndexScreenshot.png)
 ## Table of Contents
